@@ -1,0 +1,46 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="{% static 'css/ui.css' %}">
+  
+</head>
+
+<body>
+  <main id="main-holder">
+    <h1 id="login-header">Sign-up</h1>
+    
+    <div id="login-error-msg-holder">
+      <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+    </div>
+    
+    <form action="homepage" method="post">
+        {% csrf_token %}
+
+        <input type="text" name="first_name" placeholder="Enter Name" class="login-form-field"><br>
+        <input type="text" name="last_name" placeholder="Last Name" class="login-form-field"><br>
+        <input type="text" name="username" placeholder="Username" class="login-form-field"><br>
+        <input type="email" name="email" placeholder="email" class="login-form-field"><br>
+        <input type="password" name="password1" placeholder="Password" class="login-form-field"><br>
+        <input type="password" name="password2" placeholder="Confirm Password" class="login-form-field"><br>
+        <input type="Submit" class="btn" value="Sign up" id="login-form-submit">
+
+    </form>
+
+    <div>
+        {% for message in messages %}
+        <h3> {{message}}  </h3>
+        {% endfor %}
+    </div>
+  
+  </main>
+</body>
+
+</html>
+
